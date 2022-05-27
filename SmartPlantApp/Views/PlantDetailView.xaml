@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SmartPlantApp.Views.PlantDetailView"
+    Title="Smart Plant App">
+    <ContentPage.Content>
+
+        <ScrollView>
+            <Grid Grid.Row="1" x:Name="PlantGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="200"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".4*"></ColumnDefinition>
+                    <ColumnDefinition Width=".6*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="TitleLabel"
+                       Text="Plant management"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"></Label>
+                <Label Text="Plant name"
+                       Grid.Row="2"
+                       Grid.Column="0"></Label>
+                <Entry Grid.Row="2"
+                       Grid.Column="1"
+                       Text="{Binding SelectedPlant.PlantName, Mode=TwoWay}"></Entry>
+                <Label Text="Moisture Value"
+                       Grid.Row="3"
+                       Grid.Column="0"></Label>
+                <Entry Grid.Row="3"
+                       Grid.Column="1"
+                       Text="{Binding SelectedPlant.MoistureValue, Mode=TwoWay}"></Entry>
+                <Label Text="Water Level Value"
+                       Grid.Row="4"
+                       Grid.Column="0"></Label>
+                <Entry Grid.Row="4"
+                       Grid.Column="1"
+                       Text="{Binding SelectedPlant.WaterLevelValue, Mode=TwoWay}"></Entry>
+                <Button x:Name="SavePlantButton"
+                        Text="Save Plant"
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"></Button>
+                
+            </Grid>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>
