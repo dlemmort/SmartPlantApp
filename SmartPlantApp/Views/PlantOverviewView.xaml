@@ -3,6 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="SmartPlantApp.Views.PlantOverviewView"
+    xmlns:behaviors="clr-namespace:SmartPlantApp.Behaviours;assembly=SmartPlantApp"
     Title="Smart Plant App">
 
     <ContentPage.Content>
@@ -15,11 +16,18 @@
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Grid.Row="1" Text="Load plants"></Button>
-            <Button Grid.Row="2" Text="Add new plant"></Button>
+            <Button Grid.Row="1" Text="Load plants" Command="{Binding LoadCommand}"></Button>
+            <Button Grid.Row="2" Text="Add new plant" Command="{Binding AddCommand}"></Button>
 
             <ListView HasUnevenRows="True" Grid.Row="3" ItemsSource="{Binding Plants}"
                       x:Name="PlantsListView" CachingStrategy="RecycleElement">
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior
+                        EventName="ItemTapped"
+                        Command="{Binding PlantSelectedCommand}"
+                        >
+                    </behaviors:EventToCommandBehavior>
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
