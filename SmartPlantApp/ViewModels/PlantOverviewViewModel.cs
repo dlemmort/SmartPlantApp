@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using SmartPlantApp.Models;
+using SmartPlantApp.Utility;
 using Xamarin.Forms;
 
 namespace SmartPlantApp.ViewModels
@@ -32,21 +33,29 @@ namespace SmartPlantApp.ViewModels
             AddCommand = new Command(OnAddCommand);
             PlantSelectedCommand = new Command<Plant>(OnPlantSelectedCommand);
 
+            MessagingCenter.Subscribe<PlantDetailViewModel, Plant>
+                (this, MessageNames.PlantChangedMessage, OnPlantChanged);
+
+        }
+
+        private void OnPlantChanged(PlantDetailViewModel sender, Plant plant)
+        {
+            Plants = new ObservableCollection<Plant>(App.PlantDataService.GetAllPlants());
         }
 
         public void OnLoadCommand()
         {
-            Plants = new ObservableCollection<Plant>(MockPlantRepository.Plants);
+            Plants = new ObservableCollection<Plant>(App.PlantDataService.GetAllPlants());
         }
 
         public void OnAddCommand()
         {
-
+            App.NavigationService.NavigateTo(ViewNames.PlantDetailView);
         }
 
         private void OnPlantSelectedCommand(Plant plant)
         {
-            
+            App.NavigationService.NavigateTo(ViewNames.PlantDetailView, plant);
         }
     }
 }

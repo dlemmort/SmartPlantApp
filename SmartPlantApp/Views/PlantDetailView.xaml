@@ -5,53 +5,51 @@
     x:Class="SmartPlantApp.Views.PlantDetailView"
     Title="Smart Plant App">
     <ContentPage.Content>
-
-        <ScrollView>
-            <Grid Grid.Row="1" x:Name="PlantGrid">
+            <Grid RowSpacing="0"
+                  ColumnSpacing="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="150"></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="200"></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width=".4*"></ColumnDefinition>
-                    <ColumnDefinition Width=".6*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Label x:Name="TitleLabel"
-                       Text="Plant management"
-                       Grid.Row="0"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="2"></Label>
-                <Label Text="Plant name"
-                       Grid.Row="2"
-                       Grid.Column="0"></Label>
-                <Entry Grid.Row="2"
-                       Grid.Column="1"
-                       Text="{Binding SelectedPlant.PlantName, Mode=TwoWay}"></Entry>
-                <Label Text="Moisture Value"
-                       Grid.Row="3"
-                       Grid.Column="0"></Label>
-                <Entry Grid.Row="3"
-                       Grid.Column="1"
-                       Text="{Binding SelectedPlant.MoistureValue, Mode=TwoWay}"></Entry>
-                <Label Text="Water Level Value"
-                       Grid.Row="4"
-                       Grid.Column="0"></Label>
-                <Entry Grid.Row="4"
-                       Grid.Column="1"
-                       Text="{Binding SelectedPlant.WaterLevelValue, Mode=TwoWay}"></Entry>
-                <Button x:Name="SavePlantButton"
-                        Text="Save Plant"
-                        Grid.Row="5"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"></Button>
-                
+                <AbsoluteLayout Grid.Row="1">
+                    <Image Source="Tekengebied 1.png"/>
+                    <Label Text="{Binding SelectedPlant.MoistureValue}"
+                           FontSize="40"
+                           AbsoluteLayout.LayoutBounds=".5,.35,100,100"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           HorizontalTextAlignment="Center"
+                           TextColor="white"/>
+                    <Label Text="{Binding SelectedPlant.WaterLevelValue}"
+                           AbsoluteLayout.LayoutBounds=".5,.635,100,100"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           FontSize="40"
+                           HorizontalTextAlignment="Center"
+                           TextColor="white"/>
+                </AbsoluteLayout>
+
+                <Grid Grid.Row="2"
+                      ColumnSpacing="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0"
+                            Text="Water"
+                            TextColor="White"
+                            FontSize="25"
+                            WidthRequest=".5"
+                            BackgroundColor="#505F4E"
+                            CornerRadius="0"
+                            />
+                    <Button Grid.Column="1"
+                            Text="Grafiek"
+                            TextColor="White"
+                            FontSize="25"
+                            WidthRequest=".5"
+                            BackgroundColor="#505F4E"
+                            CornerRadius="0"/>
+                </Grid>
             </Grid>
-        </ScrollView>
-        
     </ContentPage.Content>
 </ContentPage>

@@ -11,5 +11,11 @@ namespace SmartPlantApp.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public virtual void Initialize(object parameter)
+        {
+            
+        }
+
     }
 }

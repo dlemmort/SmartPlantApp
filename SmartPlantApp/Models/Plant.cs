@@ -1,19 +1,24 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+
 namespace SmartPlantApp.Models
 {
-    public class Plant
+    public class Plant : INotifyPropertyChanged
     {
-        private int _id;
+        private Guid _id;
         private string _plantName;
         private int _moistureValue;
         private int _waterLevelValue;
+        public ObservableCollection<Moisture> _moistureLevels { get; set; }
 
-        public int Id
+        public Guid Id
         {
             get => _id;
             set
             {
                 _id = value;
+                RaisePropertyChanged(nameof(Id));
             }
         }
 
@@ -23,6 +28,7 @@ namespace SmartPlantApp.Models
             set
             {
                 _plantName = value;
+                RaisePropertyChanged(nameof(PlantName));
             }
         }
 
@@ -32,6 +38,7 @@ namespace SmartPlantApp.Models
             set
             {
                 _moistureValue = value;
+                RaisePropertyChanged(nameof(MoistureValue));
             }
         }
 
@@ -41,7 +48,15 @@ namespace SmartPlantApp.Models
             set
             {
                 _waterLevelValue = value;
+                RaisePropertyChanged(nameof(WaterLevelValue));
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void RaisePropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

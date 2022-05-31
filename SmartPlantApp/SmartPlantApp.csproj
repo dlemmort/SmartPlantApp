@@ -21,6 +21,7 @@
     <None Remove="Utility\" />
     <None Remove="Behaviors\" />
     <None Remove="Converters\" />
+    <None Remove="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -29,5 +30,6 @@
     <Folder Include="Utility\" />
     <Folder Include="Behaviors\" />
     <Folder Include="Converters\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 </Project>
