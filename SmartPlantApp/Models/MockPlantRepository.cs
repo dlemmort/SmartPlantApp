@@ -26,13 +26,13 @@ namespace SmartPlantApp.Models
                             new Moisture
                             {
                                 Id = Guid.NewGuid(),
-                                DateTime = new DateTime(2022,5,30,19,55,0),
+                                DateTime = new DateTime(2022,5,28,19,55,0),
                                 MoistureLevel = 56
                             },
                             new Moisture
                             {
                                 Id = Guid.NewGuid(),
-                                DateTime = new DateTime(2022,5,30,20,0,0),
+                                DateTime = new DateTime(2022,5,29,20,0,0),
                                 MoistureLevel = 46
                             },
                             new Moisture
@@ -44,15 +44,49 @@ namespace SmartPlantApp.Models
                             new Moisture
                             {
                                 Id = Guid.NewGuid(),
-                                DateTime = new DateTime(2022,5,30,20,10,0),
+                                DateTime = new DateTime(2022,5,31,20,10,0),
                                 MoistureLevel = 26
                             },
                             new Moisture
                             {
                                 Id = Guid.NewGuid(),
-                                DateTime = new DateTime(2022,5,30,20,15,0),
+                                DateTime = new DateTime(2022,6,1,20,15,0),
                                 MoistureLevel = 16
                             }
+                        },
+                            _waterLevels = new ObservableCollection<Water>
+                            {
+                            new Water
+                            {
+                                Id = Guid.NewGuid(),
+                                DateTime = new DateTime(2022,5,28,19,55,0),
+                                WaterLevel = 30
+                            },
+                            new Water
+                            {
+                                Id = Guid.NewGuid(),
+                                DateTime = new DateTime(2022,5,29,20,0,0),
+                                WaterLevel = 20
+                            },
+                            new Water
+                            {
+                                Id = Guid.NewGuid(),
+                                DateTime = new DateTime(2022,5,30,20,5,0),
+                                WaterLevel = 90
+                            },
+                            new Water
+                            {
+                                Id = Guid.NewGuid(),
+                                DateTime = new DateTime(2022,5,31,20,10,0),
+                                WaterLevel = 85
+                            },
+                            new Water
+                            {
+                                Id = Guid.NewGuid(),
+                                DateTime = new DateTime(2022,6,1,20,15,0),
+                                WaterLevel = 84
+                            }
+
                         }
                     },
                     new Plant

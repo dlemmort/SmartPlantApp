@@ -12,6 +12,8 @@ namespace SmartPlantApp.ViewModels
 
         public ICommand SaveCommand { get; }
 
+        public ICommand GraphCommand { get; }
+
         public Plant SelectedPlant
         {
             get { return _selectedPlant; }
@@ -26,6 +28,7 @@ namespace SmartPlantApp.ViewModels
         {
             SelectedPlant = new Plant();
             SaveCommand = new Command(OnSaveCommand);
+            GraphCommand = new Command(OnGraphCommand);
         }
 
         public override void Initialize(object parameter)
@@ -48,6 +51,11 @@ namespace SmartPlantApp.ViewModels
             MessagingCenter.Send(this, MessageNames.PlantChangedMessage, SelectedPlant);
 
             App.NavigationService.GoBack();
+        }
+
+        private void OnGraphCommand()
+        {
+            App.NavigationService.NavigateTo(ViewNames.PlantGraphView, SelectedPlant);
         }
     }
 }

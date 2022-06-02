@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="20.1.0.58" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -22,6 +23,10 @@
     <None Remove="Behaviors\" />
     <None Remove="Converters\" />
     <None Remove="Services\" />
+    <None Remove="Microcharts" />
+    <None Remove="Microcharts.Forms" />
+    <None Remove="OxyPlot.Xamarin.Forms" />
+    <None Remove="Syncfusion.Xamarin.SfChart" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -7,5 +7,7 @@ namespace SmartPlantApp.Utility
 
         public const string PlantDetailView = "PlantDetailView";
 
+        public const string PlantGraphView = "PlantGraphView";
+
     }
 }

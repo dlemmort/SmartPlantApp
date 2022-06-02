@@ -3,7 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="SmartPlantApp.Views.PlantDetailView"
-    Title="Smart Plant App">
+    Title="Smart Plant App"
+    >
     <ContentPage.Content>
             <Grid RowSpacing="0"
                   ColumnSpacing="1">
@@ -48,7 +49,8 @@
                             FontSize="25"
                             WidthRequest=".5"
                             BackgroundColor="#505F4E"
-                            CornerRadius="0"/>
+                            CornerRadius="0"
+                            Command="{Binding GraphCommand}"/>
                 </Grid>
             </Grid>
     </ContentPage.Content>

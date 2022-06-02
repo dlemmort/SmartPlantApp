@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SmartPlantApp.Views.PlantGraphView"
+    xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms">
+    <ContentPage.Content>
+                    <Grid RowSpacing="0"
+                  ColumnSpacing="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <chart:SfChart Grid.Row="1"
+                               HeightRequest="200"
+                               >
+                    <chart:SfChart.PrimaryAxis>
+                        <chart:DateTimeAxis/>
+                    </chart:SfChart.PrimaryAxis>
+
+                    <chart:SfChart.SecondaryAxis>
+                        <chart:NumericalAxis Minimum="0" Maximum="100"/>
+                    </chart:SfChart.SecondaryAxis>
+
+                    <chart:LineSeries ItemsSource="{Binding SelectedPlant._moistureLevels}"
+                                      XBindingPath="DateTime"
+                                      YBindingPath="MoistureLevel"/>
+                    <chart:LineSeries ItemsSource="{Binding SelectedPlant._waterLevels}"
+                                      XBindingPath="DateTime"
+                                      YBindingPath="WaterLevel"/>
+                </chart:SfChart>
+                <Label Grid.Row="0"
+                       Text="{Binding SelectedPlant.PlantName}"/>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

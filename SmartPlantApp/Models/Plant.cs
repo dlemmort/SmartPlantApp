@@ -11,6 +11,7 @@ namespace SmartPlantApp.Models
         private int _moistureValue;
         private int _waterLevelValue;
         public ObservableCollection<Moisture> _moistureLevels { get; set; }
+        public ObservableCollection<Water> _waterLevels { get; set; }
 
         public Guid Id
         {
