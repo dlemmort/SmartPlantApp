@@ -14,5 +14,8 @@ namespace SmartPlantApp.Utility
 
         public static PlantGraphViewModel PlantGraphViewModel { get; set; }
             = new PlantGraphViewModel();
+
+        public static PlantEditViewModel PlantEditViewModel { get; set; }
+            = new PlantEditViewModel();
     }
 }

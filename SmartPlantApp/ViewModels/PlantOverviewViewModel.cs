@@ -11,10 +11,6 @@ namespace SmartPlantApp.ViewModels
     {
         private ObservableCollection<Plant> _plants;
 
-        public ICommand LoadCommand { get; }
-
-        public ICommand AddCommand { get; }
-
         public ICommand PlantSelectedCommand { get; }
 
         public ObservableCollection<Plant> Plants
@@ -28,9 +24,7 @@ namespace SmartPlantApp.ViewModels
         }
         public PlantOverviewViewModel()
         {
-            //Plants = new ObservableCollection<Plant>(MockPlantRepository.Plants);
-            LoadCommand = new Command(OnLoadCommand);
-            AddCommand = new Command(OnAddCommand);
+            Plants = new ObservableCollection<Plant>(App.PlantDataService.GetAllPlants());
             PlantSelectedCommand = new Command<Plant>(OnPlantSelectedCommand);
 
             MessagingCenter.Subscribe<PlantDetailViewModel, Plant>
@@ -41,16 +35,6 @@ namespace SmartPlantApp.ViewModels
         private void OnPlantChanged(PlantDetailViewModel sender, Plant plant)
         {
             Plants = new ObservableCollection<Plant>(App.PlantDataService.GetAllPlants());
-        }
-
-        public void OnLoadCommand()
-        {
-            Plants = new ObservableCollection<Plant>(App.PlantDataService.GetAllPlants());
-        }
-
-        public void OnAddCommand()
-        {
-            App.NavigationService.NavigateTo(ViewNames.PlantDetailView);
         }
 
         private void OnPlantSelectedCommand(Plant plant)

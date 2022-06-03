@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Windows.Input;
 using SmartPlantApp.Models;
-using SmartPlantApp.Utility;
 using Xamarin.Forms;
 
 namespace SmartPlantApp.ViewModels
 {
-    public class PlantDetailViewModel : BaseViewModel
+    public class PlantEditViewModel : BaseViewModel
     {
         private Plant _selectedPlant;
 
-        public ICommand WaterCommand { get; }
-
-        public ICommand GraphCommand { get; }
-
-        public ICommand EditCommand { get; }
+        public ICommand SaveCommand { get; }
 
         public Plant SelectedPlant
         {
@@ -26,12 +21,10 @@ namespace SmartPlantApp.ViewModels
             }
         }
 
-        public PlantDetailViewModel()
+        public PlantEditViewModel()
         {
             SelectedPlant = new Plant();
-            WaterCommand = new Command(OnWaterCommand);
-            GraphCommand = new Command(OnGraphCommand);
-            EditCommand = new Command(OnEditCommand);
+            SaveCommand = new Command(OnSaveCommand);
         }
 
         public override void Initialize(object parameter)
@@ -44,19 +37,12 @@ namespace SmartPlantApp.ViewModels
                 SelectedPlant = parameter as Plant;
         }
 
-        private void OnWaterCommand()
+        private void OnSaveCommand()
         {
 
         }
 
-        private void OnGraphCommand()
-        {
-            App.NavigationService.NavigateTo(ViewNames.PlantGraphView, SelectedPlant);
-        }
 
-        private void OnEditCommand()
-        {
-            App.NavigationService.NavigateTo(ViewNames.PlantEditView, SelectedPlant);
-        }
+
     }
 }

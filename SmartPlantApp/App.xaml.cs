@@ -20,7 +20,13 @@ namespace SmartPlantApp
             NavigationService.Configure(ViewNames.PlantOverviewView, typeof(PlantOverviewView));
             NavigationService.Configure(ViewNames.PlantDetailView, typeof(PlantDetailView));
             NavigationService.Configure(ViewNames.PlantGraphView, typeof(PlantGraphView));
-            MainPage = new NavigationPage(new PlantOverviewView());   
+            NavigationService.Configure(ViewNames.PlantEditView, typeof(PlantEditView));
+            MainPage = new NavigationPage(new PlantOverviewView())
+            {
+                BarBackgroundColor = Color.FromHex("#505F4E"),
+                BarTextColor = Color.White
+
+            };   
         }
 
         protected override void OnStart()

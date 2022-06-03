@@ -10,6 +10,11 @@ namespace SmartPlantApp.Models
         private string _plantName;
         private int _moistureValue;
         private int _waterLevelValue;
+        private int _minMoistureValue;
+        private int _maxMoistureValue;
+        private int _minWaterLevelValue;
+        private int _maxWaterLevelValue;
+
         public ObservableCollection<Moisture> _moistureLevels { get; set; }
         public ObservableCollection<Water> _waterLevels { get; set; }
 
@@ -51,6 +56,47 @@ namespace SmartPlantApp.Models
                 _waterLevelValue = value;
                 RaisePropertyChanged(nameof(WaterLevelValue));
             }
+        }
+
+        public int MinMoistureValue
+        {
+            get => _minMoistureValue;
+            set
+            {
+                _minMoistureValue = value;
+                RaisePropertyChanged(nameof(MinMoistureValue));
+            }
+        }
+
+        public int MaxMoistureValue
+        {
+            get => _maxMoistureValue;
+            set
+            {
+                _maxMoistureValue = value;
+                RaisePropertyChanged(nameof(MaxMoistureValue));
+            }
+        }
+
+        public int MinWaterLevelValue
+        {
+            get => _minWaterLevelValue;
+            set
+            {
+                _minWaterLevelValue = value;
+                RaisePropertyChanged(nameof(MaxMoistureValue));
+            }
+        }
+
+        public int MaxWaterLevelValue
+        {
+            get => _maxWaterLevelValue;
+            set
+            {
+                _maxWaterLevelValue = value;
+                RaisePropertyChanged(nameof(MaxWaterLevelValue));
+            }
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
