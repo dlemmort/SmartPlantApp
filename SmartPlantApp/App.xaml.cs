@@ -1,4 +1,5 @@
 ﻿using System;
+using SmartPlantApp.Models;
 using SmartPlantApp.Services;
 using SmartPlantApp.Utility;
 using SmartPlantApp.Views;
@@ -9,13 +10,13 @@ namespace SmartPlantApp
 {
     public partial class App : Application
     {
-        public static PlantDataService PlantDataService { get; } = new PlantDataService();
-
         public static NavigationService NavigationService { get; } = new NavigationService();
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjQ5OTYzQDMyMzAyZTMxMmUzMFZIcGhnaVVtelJndmJKMStCbHB6TXVlWlZjN1NTZlJCbW9ieDRKZTVDQ3c9");
             InitializeComponent();
+
+            DependencyService.Register<IPlantRepository, PlantRepository>();
 
             NavigationService.Configure(ViewNames.PlantOverviewView, typeof(PlantOverviewView));
             NavigationService.Configure(ViewNames.PlantDetailView, typeof(PlantDetailView));

@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
 namespace SmartPlantApp.Models
 {
     public interface IPlantRepository
     {
-        void AddPlant(Plant plant);
+        Task<List<Plant>> GetAllPlants();
+
         void UpdatePlant(Plant plant);
     }
 }

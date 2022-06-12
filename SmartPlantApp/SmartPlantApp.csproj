@@ -14,6 +14,7 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="20.1.0.58" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\" />
@@ -27,6 +28,7 @@
     <None Remove="Microcharts.Forms" />
     <None Remove="OxyPlot.Xamarin.Forms" />
     <None Remove="Syncfusion.Xamarin.SfChart" />
+    <None Remove="Newtonsoft.Json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using SmartPlantApp.Models;
 using SmartPlantApp.ViewModels;
 using Xamarin.Forms;
 
@@ -7,7 +8,7 @@ namespace SmartPlantApp.Utility
     public static class ViewModelLocator
     {
         public static PlantOverviewViewModel PlantOverviewViewModel { get; set; }
-            = new PlantOverviewViewModel();
+            = new PlantOverviewViewModel(DependencyService.Get<IPlantRepository>());
 
         public static PlantDetailViewModel PlantDetailViewModel { get; set; }
             = new PlantDetailViewModel();

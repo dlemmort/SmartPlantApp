@@ -11,6 +11,8 @@ namespace SmartPlantApp.ViewModels
     {
         private ObservableCollection<Plant> _plants;
 
+        private IPlantRepository _plantRepository;
+
         public ICommand PlantSelectedCommand { get; }
 
         public ObservableCollection<Plant> Plants
@@ -22,9 +24,10 @@ namespace SmartPlantApp.ViewModels
                 OnPropertyChanged("Plants");
             }
         }
-        public PlantOverviewViewModel()
+        public PlantOverviewViewModel(IPlantRepository plantRepository)
         {
-            Plants = new ObservableCollection<Plant>(App.PlantDataService.GetAllPlants());
+            _plantRepository = plantRepository;
+            Plants = new ObservableCollection<Plant>(_plantRepository.GetAllPlants().Result);
             PlantSelectedCommand = new Command<Plant>(OnPlantSelectedCommand);
 
             MessagingCenter.Subscribe<PlantDetailViewModel, Plant>
@@ -34,7 +37,7 @@ namespace SmartPlantApp.ViewModels
 
         private void OnPlantChanged(PlantDetailViewModel sender, Plant plant)
         {
-            Plants = new ObservableCollection<Plant>(App.PlantDataService.GetAllPlants());
+            Plants = new ObservableCollection<Plant>(_plantRepository.GetAllPlants().Result);
         }
 
         private void OnPlantSelectedCommand(Plant plant)

@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace SmartPlantApp.Models
 {
-    public class MockPlantRepository
+    public class MockPlantRepository : IPlantRepository
     {
-        public static List<Plant> Plants { get; set; }
+        public List<Plant> Plants { get; set; }
 
-        static MockPlantRepository()
+        public MockPlantRepository()
         {
             if (Plants == null)
             {
@@ -213,13 +214,12 @@ namespace SmartPlantApp.Models
             }
         }
 
-        public static void AddPlant(Plant plant)
+        public async Task<List<Plant>> GetAllPlants()
         {
-            plant.Id = Guid.NewGuid();
-            Plants.Add(plant);
+            return Plants;
         }
 
-        public static void UpdatePlant(Plant plant)
+        public void UpdatePlant(Plant plant)
         {
             Plant oldPlant = Plants.Where(p => p.Id == plant.Id).FirstOrDefault();
             oldPlant.PlantName = plant.PlantName;

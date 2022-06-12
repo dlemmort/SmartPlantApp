@@ -17,11 +17,5 @@ namespace SmartPlantApp.Converters
         {
             throw new NotImplementedException();
         }
-
-
-
-        public ItemTappedConverter()
-        {
-        }
     }
 }
